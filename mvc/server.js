@@ -62,7 +62,6 @@ app.disable('x-powered-by')
 if (cluster.isMaster && process.argv[2] === 'CLUSTER') {
   loggerInfo.info(numCpu)
   loggerInfo.info(`process ID: ${process.pid} `)
-
   for (let i = 0; i < numCpu; i++) {
     cluster.fork()
   }

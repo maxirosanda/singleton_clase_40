@@ -5,7 +5,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "nodemon server.js CLUSTER basemongo",
     "sincluster": "nodemon server.js",
     "artillery": "artillery quick --count 500 -n 10 http://localhost:8080/ > resultados_artillery.txt",
     "test": "mocha --recursive"

@@ -6,8 +6,10 @@ import * as middlewareEditor from '../middlewares/middlewareEditor.js'
 import * as middlewareComprador from '../middlewares/middlewareComprador.js'
 import * as sessionController from '../controllers/sessionController.js'
 import passport from 'passport'
+import BaseDeDatos from '../services/singleton.js'
 
 export const ecommerceRoutes = app => {
+  app.get('/base/:base', (req, res) => { res.send(new BaseDeDatos(req.params.base)) })
   app.get('/logout', sessionController.logout)
   app.get('/failLogin', (req, res) => { res.send('falla al logear') })
   app.get('/failRegister', (req, res) => { res.send('falla al registrar') })
