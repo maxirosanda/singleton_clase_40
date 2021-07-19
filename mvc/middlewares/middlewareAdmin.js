@@ -1,11 +1,12 @@
 
-export const auth =(req,res,next)=>{
-    if(req.isAuthenticated()) {
-    if( req.user.tipo_usuario=="admin" ){
-        next()
-    }else{
-        res.redirect("/") 
-    }
+export const auth = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    if (req.user.tipoUsuario === 'admin') {
+      next()
     } else {
-     res.redirect("/login")
-}}
+      res.redirect('/')
+    }
+  } else {
+    res.redirect('/login')
+  }
+}

@@ -1,8 +1,8 @@
-import React from 'react' 
+import React from 'react'
 
 const Agregar = ({producto,actproducto,actDatos,borrarproducto}) => {
 
-  return <React.Fragment> 
+  return <React.Fragment>
       <h2>Producto: {producto.nombre} con Id: {producto._id}</h2>
       <form onSubmit={actproducto} name={producto._id} className="mt-5">
       <input type="text"  className="form-control mt-2" onChange={actDatos} name="nombre" defaultValue={producto.nombre} aria-describedby="emailHelp"/>
@@ -15,10 +15,9 @@ const Agregar = ({producto,actproducto,actDatos,borrarproducto}) => {
       <form onSubmit={borrarproducto} name={producto._id} className="mb-5 mt-2">
       <button type="submit"  className="btn btn-primary">Borrar</button>
       </form>
-  
 
 
   </React.Fragment>
   }
-  
+
   export default Agregar

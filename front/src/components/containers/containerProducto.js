@@ -19,12 +19,12 @@ const ContainerProducto= () => {
     var config = {
       method: 'get',
       url: `http://localhost:8080/producto/${id}`,
-      headers: { 
+      headers: {
         'Cookie': 'connect.sid=s%3AkJ8y18B1hrC4fkfBdIGOvRoFiv0CWMwe.Ev0l5Jyd0xY%2FuGbgBfAv2Oy%2F6JF5A%2FiXJc2FpoM15fs'
       },
       withCredentials: true
     };
-    
+
     try{
     const response = await axios(config);
       setProducto(response.data.producto)
@@ -39,7 +39,7 @@ const ContainerProducto= () => {
 
     useEffect(()=>{
         producto.length && setLoading(false)
-      
+
     },[producto])
 
     const agregarcarrito = async e => {
@@ -51,13 +51,13 @@ const ContainerProducto= () => {
        if(e.target[i].name=="precio") json.precio = e.target[i].value
        if(e.target[i].name=="codigo")  json.codigo = e.target[i].value
        if(e.target[i].name=="url")  json.url = e.target[i].value
-       if(e.target[i].name=="cant_compra")  json.cant_compra = e.target[i].value
+       if(e.target[i].name=="cantCompra")  json.cantCompra = e.target[i].value
        json.id_comprador = idUsuario
       }
      var config = {
       method: 'post',
       url: 'http://localhost:8080/carrito',
-      headers: { 
+      headers: {
         'Content-Type': 'application/json'
       },
       data : json,
@@ -68,7 +68,7 @@ const ContainerProducto= () => {
     try{
     const response = await axios(config);
 
-  
+
     }catch(e) {
       console.log(e);
     }
@@ -81,21 +81,21 @@ const ContainerProducto= () => {
       var config = {
         method: 'post',
         url: 'http://localhost:8080/mensajes',
-        headers: { 
+        headers: {
           'Content-Type': 'application/json'
         },
         data : crearMensaje,
         withCredentials: true
       };
-  
+
       try{
       const response = await axios(config);
 
-    
+
       }catch(e) {
         console.log(e);
       }
-   
+
     }
 
     const CrearMensaje = (e) => {
@@ -105,22 +105,22 @@ const ContainerProducto= () => {
       }
       setCrearMensaje({...crearMensaje,[e.target.name]: e.target.value,"articulo": valor});
     };
-  return <React.Fragment> 
-       
-{ 
+  return <React.Fragment>
+
+{
         loading ? ( <Spinner animation="border" role="status"/>
-        ):( producto.length && <Producto key ={producto[0].actualizar} enviarMensaje={enviarMensaje} CrearMensaje={CrearMensaje} producto = {producto[0]} agregarcarrito={agregarcarrito}/> )  
-             
-}  
+        ):( producto.length && <Producto key ={producto[0].actualizar} enviarMensaje={enviarMensaje} CrearMensaje={CrearMensaje} producto = {producto[0]} agregarcarrito={agregarcarrito}/> )
+
+}
 
 {
 
   mensajes.length && mensajes.map((mensaje) => {
   return <Mensajes key ={mensaje._id} mensajes={mensaje}  />
   })
- 
+
 }
   </React.Fragment>
   }
-  
+
   export default ContainerProducto

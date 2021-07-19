@@ -4,7 +4,7 @@ import React from 'react'
 
 const MisDatos = ({datos,act,actdatos}) => {
 
-  return <React.Fragment> 
+  return <React.Fragment>
 <h2>Mis Datos Personales</h2>
 <form onSubmit={actdatos} name="_id" id={datos._id} enctype="multipart/form-data">
   <div className="form-group">
@@ -33,7 +33,7 @@ const MisDatos = ({datos,act,actdatos}) => {
   </div>
     <div className="form-group">
     <label>Codigo de area</label>
-    <input type="text" className="form-control" name="pre_tel" onChange={act}   aria-describedby="emailHelp" defaultValue={datos.pre_tel}/>
+    <input type="text" className="form-control" name="preTel" onChange={act}   aria-describedby="emailHelp" defaultValue={datos.preTel}/>
   </div>
      <div className="form-group">
     <label>Telefono</label>
@@ -45,9 +45,5 @@ const MisDatos = ({datos,act,actdatos}) => {
 
   </React.Fragment>
   }
-  
+
   export default MisDatos
-
-
-
-
