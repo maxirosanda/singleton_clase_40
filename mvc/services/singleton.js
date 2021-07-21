@@ -11,4 +11,9 @@ export default class BaseDeDatos {
             return  BaseDeDatos.instancia
         }
     }
+
+    obtenerBaseDeDatos() {
+        console.log(this.base)
+        return this.base
+    }
 }
