@@ -11,7 +11,7 @@ export const conectarDB = async () => {
     let URL = ' '
     if (new BaseDeDatos(process.argv[3]).obtenerBaseDeDatos() === 'mongo') {
       URL = 'mongodb+srv://maxirosanda:dalma123@cluster0.cawk2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-    } else {
+    } else if (new BaseDeDatos(process.argv[3]).obtenerBaseDeDatos() === 'mongolocal') {
       URL = 'mongodb://localhost:27017/ecommerce'
     }
     await mongoose.connect(URL, {
